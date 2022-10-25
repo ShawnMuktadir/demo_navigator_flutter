@@ -1,8 +1,9 @@
+import 'dart:collection';
+
 import 'package:demo_navigator/child/child_a.dart';
 import 'package:demo_navigator/child/child_b.dart';
 import 'package:demo_navigator/child/child_c.dart';
 import 'package:flutter/material.dart';
-import 'dart:collection';
 
 void main() => runApp(MyApp());
 
@@ -61,7 +62,8 @@ class _MyHomePageState extends State<MyHomePage> {
                       _c1 = context;
                       return GestureDetector(
                         onTap: () {
-                          Navigator.of(context).push(MaterialPageRoute(builder: (context) => ChildA()));
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => ChildA()));
                           _queue.addLast(context);
                         },
                         child: Center(
@@ -79,7 +81,8 @@ class _MyHomePageState extends State<MyHomePage> {
                       _c2 = context;
                       return GestureDetector(
                         onTap: () {
-                          Navigator.of(context).push(MaterialPageRoute(builder: (context) => ChildB()));
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => ChildB()));
                           _queue.addLast(context);
                         },
                         child: Center(
@@ -96,21 +99,24 @@ class _MyHomePageState extends State<MyHomePage> {
         persistentFooterButtons: <Widget>[
           GestureDetector(
             onTap: () {
-              Navigator.of(_c1).push(MaterialPageRoute(builder: (context) => ChildA()));
+              Navigator.of(_c1)
+                  .push(MaterialPageRoute(builder: (context) => ChildA()));
               _queue.addLast(_c1);
             },
             child: Text('Replace A'),
           ),
           GestureDetector(
             onTap: () {
-              Navigator.of(_c2).push(MaterialPageRoute(builder: (context) => ChildB()));
+              Navigator.of(_c2)
+                  .push(MaterialPageRoute(builder: (context) => ChildB()));
               _queue.addLast(_c2);
             },
             child: Text('Replace B'),
           ),
           GestureDetector(
             onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(builder: (context) => ChildC()));
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (context) => ChildC()));
             },
             child: Text('Replace All'),
           ),
